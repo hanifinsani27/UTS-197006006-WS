@@ -18,11 +18,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/3/search/tv', [\App\Http\Controllers\WrapperController::class, 'searchtv'])->name('searchtv');
-Route::get('/3/search/movie', [\App\Http\Controllers\WrapperController::class, 'searchmovie'])->name('searchmovie');
-Route::get('/3/genre/movie/list', [\App\Http\Controllers\WrapperController::class, 'genremovie'])->name('genremovie');
-Route::get('/3/configuration/languages', [\App\Http\Controllers\WrapperController::class, 'language'])->name('searchmovie');
-Route::get('/3/movie/589712', [\App\Http\Controllers\WrapperController::class, 'detailmovie'])->name('detailmovie');
+Route::get('/3/search/tv', [\App\Http\Controllers\WrapperController::class, 'searchtv'])->name('searchtv')-> middleware('npm');
+Route::get('/3/search/movie', [\App\Http\Controllers\WrapperController::class, 'searchmovie'])->name('searchmovie')-> middleware('npm');
+Route::get('/3/genre/movie/list', [\App\Http\Controllers\WrapperController::class, 'genremovie'])->name('genremovie')-> middleware('npm');
+Route::get('/3/configuration/languages', [\App\Http\Controllers\WrapperController::class, 'language'])->name('searchmovie')-> middleware('npm');
+Route::get('/3/movie/589712', [\App\Http\Controllers\WrapperController::class, 'detailmovie'])->name('detailmovie')-> middleware('npm');
 Route::get('/user/identitas', function (){
     return [
         'code' => '0',
@@ -32,4 +32,4 @@ Route::get('/user/identitas', function (){
             'email'=>'197006006@student'
         ]
         ];
-    })-> middleware('npm');
+ })-> middleware('npm');
